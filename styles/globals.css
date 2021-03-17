@@ -14,3 +14,22 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/*
+These rules to fix Tailwind issue in a specific situation
+*/
+.myFlexWrapper{
+  display: flex;
+  flex-direction: column;
+}
+.myFlexWrapper .presenta{
+  flex:2;
+}
+.myFlexWrapper .ctrl{
+  flex:1;
+}
+@media (min-width: 768px){
+  .myFlexWrapper{
+    flex-direction: row;
+  }
+}

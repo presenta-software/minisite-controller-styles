@@ -115,11 +115,11 @@ colorVar: ${config.colorVar}
         </p>
       </div>
 
-      <div className='p-3 lg:p-0 flex flex-col mt-5 md:flex-row md:space-x-8'>
-        <div className='presenta flex-2 xl:flex-1'>
+      <div className='myFlexWrapper p-3 lg:p-0 mt-5 md:space-x-8'>
+        <div className='presenta'>
           <PresentaWrapper config={config} />
         </div>
-        <div className='ctrl flex-1 w-full mt-5 md:mt-0'>
+        <div className='ctrl mt-5 md:mt-0'>
           <Controls config={config} handleChange={handleChange} />
         </div>
       </div>
