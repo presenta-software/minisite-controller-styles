@@ -19,8 +19,8 @@ const defConf = {
   scenes: [{
     blocks: [{
       type: 'text',
-      scale: 3.5,
-      text: '<h1>This is a <mark>presentation!</mark>'
+      scale: 3,
+      text: '<p>This is a </p><h1><mark>presentation!</mark></h1>'
     }]
   }, {
     blocks: [{
@@ -58,12 +58,16 @@ export default function Home () {
     const md = `---
 colors: ${findValue(colorsMap, config.colors)}
 fonts: ${findValue(fontsMap, config.fonts)}
-colorVar: ${config.colorVar}
 sceneVar: ${config.sceneVar}
 transition: ${config.transition}
 ---
 
-# This is a <mark>Presentation!</mark>
+This is a 
+# <mark>Presentation!</mark>
+
+<!--
+colorVar: ${config.colorVar}
+-->
 
 ---
 
@@ -72,6 +76,10 @@ Section 1
 - Item 1
 - Item 2
 - Item 3
+
+<!--
+colorVar: ${config.colorVar}
+-->
 
 ---
 
@@ -95,7 +103,7 @@ Section 1
         </h1>
 
         <h3 className='p-4 text-center text-2xl font-bold mt-5'>
-          Permutate colors, fonts, paddings and transitions <br />to style a PRESENTA Lib document.
+          Permute colors, fonts, paddings and transitions <br />to explore themes for PRESENTA Lib document.
         </h3>
 
         <p className='p-4 text-center text-1xl mt-5 text-gray-600 bg-gray-200'>

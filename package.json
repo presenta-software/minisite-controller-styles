@@ -9,9 +9,9 @@
     "export": "next build && next export"
   },
   "dependencies": {
-    "@presenta/controller-styles": "^1.0.2",
+    "@presenta/controller-styles": "^1.0.3",
     "@presenta/lib": "^0.1.19",
-    "@presenta/md2pjson": "^1.0.22",
+    "@presenta/md2pjson": "^1.0.24",
     "@tailwindcss/forms": "^0.2.1",
     "lz-string": "^1.4.4",
     "next": "10.0.8",
