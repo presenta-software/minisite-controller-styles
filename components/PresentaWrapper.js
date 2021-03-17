@@ -1,19 +1,28 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import * as Presenta from '@presenta/lib'
 
 function PresentaWrapper (props) {
   const preso = useRef()
+  const [first, setFirst] = useState(false)
 
   useEffect(() => {
+    console.log('MOUNTED', first)
+    setTimeout(() => {
+      new Presenta(preso.current, props.config)
+      setFirst(true)
+    }, 750)
+  }, [])
+
+  useEffect(() => {
+    console.log('UPDATE', first)
     let p = null
-    const debouncer = setTimeout(() => {
+    if (first) {
       new Presenta(preso.current, props.config).then(_p => {
         p = _p
       })
-    }, 100)
+    }
 
     return () => {
-      clearTimeout(debouncer)
       if (p) p.destroy()
       if (preso.current) preso.current.innerHTML = ''
     }

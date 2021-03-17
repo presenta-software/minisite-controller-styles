@@ -2,6 +2,7 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import 'tailwindcss/tailwind.css'
 import { useState } from 'react'
+import { colorsMap, fontsMap } from '@presenta/md2pjson'
 import LZ from 'lz-string'
 
 const PresentaWrapper = dynamic(
@@ -18,8 +19,8 @@ const defConf = {
   scenes: [{
     blocks: [{
       type: 'text',
-      scale: 4,
-      text: '<h1>Slide 1</h1><p>This is a <mark>presentation!</mark></p>'
+      scale: 3.5,
+      text: '<h1>This is a <mark>presentation!</mark>'
     }]
   }, {
     blocks: [{
@@ -38,6 +39,14 @@ const noInternal = (key, value) => {
   return value
 }
 
+const findValue = (map, v) => {
+  let res = null
+  for (const k in map) {
+    if (map[k] === v) res = k
+  }
+  return res
+}
+
 export default function Home () {
   const [config, setConfig] = useState(defConf)
   const [zid, setZid] = useState('')
@@ -47,15 +56,14 @@ export default function Home () {
     setConfig(JSON.parse(JSON.stringify(config, noInternal)))
 
     const md = `---
-colors: ${config.colors}
-fonts: ${config.fonts}
+colors: ${findValue(colorsMap, config.colors)}
+fonts: ${findValue(fontsMap, config.fonts)}
 colorVar: ${config.colorVar}
 sceneVar: ${config.sceneVar}
-transition: ${config.fonts}
+transition: ${config.transition}
 ---
 
-# Slide 1
-This is a <mark>Presentation!</mark>
+# This is a <mark>Presentation!</mark>
 
 ---
 
@@ -65,8 +73,12 @@ Section 1
 - Item 2
 - Item 3
 
+---
+
+# Want to learn more about this tool?
+### Click the HOME button
+
 `
-    console.log(md)
     setZid(LZ.compressToBase64(md))
   }
 
@@ -107,7 +119,7 @@ Section 1
         </h2>
 
         <div className='p-8 text-center'>
-          <a target='blank' href={'http://localhost:8080/import/md/' + zid} className=' w-full sm:w-auto flex-none hover:bg-gray-700 bg-blue-600 text-white text-xl leading-6 font-semibold py-3 px-6 border transition-colors duration-200' type='button' aria-label='like'>
+          <a target='blank' href={process.env.NEXT_PUBLIC_PLAYGROUND_URL + '/import/md/' + zid} className=' w-full sm:w-auto hover:bg-gray-700 bg-blue-600 text-white text-xl leading-6 font-semibold py-3 px-6 transition-colors duration-200'>
             Use it in PLAYGROUND now, our MARKDOWN based presentation tool.
           </a>
         </div>
