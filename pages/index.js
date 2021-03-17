@@ -16,10 +16,14 @@ const Controls = dynamic(
 )
 
 const defConf = {
+  colors: 'grad2',
+  fonts: 'spark',
+  colorVar: 'main',
+  sceneVar: 'a',
   scenes: [{
     blocks: [{
       type: 'text',
-      scale: 3,
+      scale: 2.5,
       text: '<p>This is a </p><h1><mark>presentation!</mark></h1>'
     }]
   }, {
@@ -27,7 +31,7 @@ const defConf = {
       type: 'text',
       scale: 2,
       textVar: 'text',
-      text: '<h1>Slide 2</h1><p>Section 1</p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>'
+      text: '<h1>Slide 2</h1><p>Presentations?</p><ul><li>Make slides Fast!</li><li>Using Markdown or Text</li></ul>'
     }]
   }]
 }
@@ -67,15 +71,15 @@ This is a
 
 <!--
 colorVar: ${config.colorVar}
+textVar: title
 -->
 
 ---
 
 # Slide 2
-Section 1
-- Item 1
-- Item 2
-- Item 3
+Presentations?
+- Make slides Fast!
+- Using Markdown or Text
 
 <!--
 colorVar: ${config.colorVar}
@@ -87,7 +91,7 @@ colorVar: ${config.colorVar}
 ### Click the HOME button
 
 `
-    setZid(LZ.compressToBase64(md))
+    setZid(LZ.compressToEncodedURIComponent(md))
   }
 
   return (
@@ -103,11 +107,11 @@ colorVar: ${config.colorVar}
         </h1>
 
         <h3 className='p-4 text-center text-2xl font-bold mt-5'>
-          Permute colors, fonts, paddings and transitions <br />to explore themes for PRESENTA Lib document.
+          Permute colors, fonts, paddings and transitions <br />to explore themes for PRESENTA Lib documents.
         </h3>
 
         <p className='p-4 text-center text-1xl mt-5 text-gray-600 bg-gray-200'>
-          With this little tool you can play with the style possibilities of the plug-in:
+          With this little configurator you can play with the style possibilities of the plug-in:
         </p>
       </div>
 
@@ -116,7 +120,7 @@ colorVar: ${config.colorVar}
           <PresentaWrapper config={config} />
         </div>
         <div className='ctrl flex-1 w-full mt-5 md:mt-0'>
-          <Controls handleChange={handleChange} />
+          <Controls config={config} handleChange={handleChange} />
         </div>
       </div>
 
@@ -127,7 +131,7 @@ colorVar: ${config.colorVar}
         </h2>
 
         <div className='p-8 text-center'>
-          <a target='blank' href={process.env.NEXT_PUBLIC_PLAYGROUND_URL + '/import/md?id=' + zid} className=' w-full sm:w-auto hover:bg-gray-700 bg-blue-600 text-white text-xl leading-6 font-semibold py-3 px-6 transition-colors duration-200'>
+          <a target='blank' href={process.env.NEXT_PUBLIC_PLAYGROUND_URL + '/import/md?id=' + zid} className='block w-full sm:w-auto hover:bg-gray-700 bg-blue-600 text-white text-xl leading-6 font-semibold py-3 px-6 transition-colors duration-200'>
             Use it in PLAYGROUND now, our MARKDOWN based presentation tool.
           </a>
         </div>
@@ -135,7 +139,7 @@ colorVar: ${config.colorVar}
       </div>
 
       <div className='border-t-2 lg:p-0 mt-8'>
-        <p className='mt-8 mb-8 sm:mb-0 text-center'>
+        <p className='mt-8 mb-8 sm:mb-4 lg:mb-0 text-center'>
           Find out more on <a className='font-bold underline' href='https://www.presenta.cc'>PRESENTA project</a> and the open-source <a className='font-bold underline' href='https://github.com/presenta-software/presenta-lib'>PRESENTA Lib</a>
         </p>
       </div>

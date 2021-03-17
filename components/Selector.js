@@ -20,13 +20,15 @@ function Selector (props, ref) {
   }), [])
 
   return (
-    <select value={p} className='w-full mb-4' onChange={onChange}>
-      <option disabled>{props.name}:</option>
-      <option>None</option>
-      {props.arr.map(d => (
-        <option key={d} value={d}>{d}</option>
-      ))}
-    </select>
+    <div>
+      <p className='pb-1 text-xs text-gray-400'>{props.name}:</p>
+      <select value={p} className='w-full mb-4' onChange={onChange}>
+        <option>None</option>
+        {props.arr.map(d => (
+          <option key={d} value={d}>{d}</option>
+        ))}
+      </select>
+    </div>
   )
 }
 
