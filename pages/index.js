@@ -127,7 +127,7 @@ colorVar: ${config.colorVar}
         </h2>
 
         <div className='p-8 text-center'>
-          <a target='blank' href={process.env.NEXT_PUBLIC_PLAYGROUND_URL + '/import/md/' + zid} className=' w-full sm:w-auto hover:bg-gray-700 bg-blue-600 text-white text-xl leading-6 font-semibold py-3 px-6 transition-colors duration-200'>
+          <a target='blank' href={process.env.NEXT_PUBLIC_PLAYGROUND_URL + '/import/md?id=' + zid} className=' w-full sm:w-auto hover:bg-gray-700 bg-blue-600 text-white text-xl leading-6 font-semibold py-3 px-6 transition-colors duration-200'>
             Use it in PLAYGROUND now, our MARKDOWN based presentation tool.
           </a>
         </div>
