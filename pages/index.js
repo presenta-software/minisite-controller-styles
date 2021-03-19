@@ -63,6 +63,7 @@ export default function Home () {
 colors: ${findValue(colorsMap, config.colors)}
 fonts: ${findValue(fontsMap, config.fonts)}
 sceneVar: ${config.sceneVar}
+colorVar: ${config.colorVar}
 transition: ${config.transition}
 ---
 
@@ -70,7 +71,6 @@ This is a
 # <mark>Presentation!</mark>
 
 <!--
-colorVar: ${config.colorVar}
 textVar: title
 -->
 
@@ -81,14 +81,11 @@ Presentations?
 - Make slides Fast!
 - Using Markdown or Text
 
-<!--
-colorVar: ${config.colorVar}
--->
 
 ---
 
 # Want to learn more about this tool?
-### Click the HOME button
+### Click the "home" button
 
 `
     setZid(LZ.compressToEncodedURIComponent(md))
