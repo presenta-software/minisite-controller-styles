@@ -104,7 +104,7 @@ Presentations?
         </h1>
 
         <h3 className='p-4 text-center text-2xl font-bold mt-5'>
-          Permute colors, fonts, paddings and transitions <br />to explore themes for PRESENTA Lib documents.
+          Permute colors, fonts, paddings and transitions <br />to explore Look&Feels for PRESENTA Lib documents.
         </h3>
 
         <p className='p-4 text-center text-1xl mt-5 text-gray-600 bg-gray-200'>
